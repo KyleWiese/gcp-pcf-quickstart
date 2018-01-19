@@ -68,7 +68,6 @@ pushd src/omg-tf
     # Verify all prerequisites are ready. This ensures downloads will succeed from PivNet
     # and the project we're deploying to is valid.
     if [ ! -f $terraform_config ]; then
-        echo "here"
         if [ -z ${PIVNET_ACCEPT_EULA+x} ]; then
             omg-cli review-eulas --env-dir="${ENV_DIR}"
         else
@@ -76,9 +75,7 @@ pushd src/omg-tf
         fi
 
         omg-cli prepare-project --env-dir="${ENV_DIR}"
-        echo "here2"
         ./init.sh
-        echo "here3"
     fi
 
     # Setup infrastructure
