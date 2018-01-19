@@ -36,7 +36,7 @@ var tile = config.Tile{
 			"28003",
 			"58587",
 			"af238d0d9d94b18da32d302512831d83aec00312a18bb528b351144e0f281f0e"},
-		"light-bosh-stemcell-3468.17-google-kvm-ubuntu-trusty-go_agent.tgz",
+		"light-bosh-stemcell-3468.17-google-kvm-ubuntu-trusty-go_agent",
 	},
 }
 
