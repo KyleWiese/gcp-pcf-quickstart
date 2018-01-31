@@ -26,28 +26,36 @@ import (
 )
 
 type EnvConfig struct {
-	DnsZoneName    string
-	ProjectID      string
-	BaseImageURL   string
-	EnvName        string
-	Region         string
-	PivnetApiToken string
-	Zone1          string
-	Zone2          string
-	Zone3          string
-	SmallFootprint bool
+	DnsZoneName        string
+	ProjectID          string
+	BaseImageURL       string
+	EnvName            string
+	Region             string
+	PivnetApiToken     string
+	Zone1              string
+	Zone2              string
+	Zone3              string
+	SmallFootprint     bool
+	ApigeeOrg          string
+	ApigeeEnv          string
+	ApigeeDashboardUrl string
+	ApigeeMgmtApiUrl   string
+	ApigeeProxyDomain  string
 }
 
 func DefaultEnvConfig() (*EnvConfig, error) {
 	c := &EnvConfig{
-		DnsZoneName:    "pcf-zone",
-		BaseImageURL:   "https://storage.cloud.google.com/ops-manager-us/pcf-gcp-1.12.5.tar.gz",
-		EnvName:        "pcf",
-		Region:         "us-east1",
-		Zone1:          "us-east1-b",
-		Zone2:          "us-east1-c",
-		Zone3:          "us-east1-d",
-		SmallFootprint: true,
+		DnsZoneName:        "pcf-zone",
+		BaseImageURL:       "https://storage.cloud.google.com/ops-manager-us/pcf-gcp-1.12.5.tar.gz",
+		EnvName:            "pcf",
+		Region:             "us-east1",
+		Zone1:              "us-east1-b",
+		Zone2:              "us-east1-c",
+		Zone3:              "us-east1-d",
+		SmallFootprint:     true,
+		ApigeeDashboardUrl: "https://enterprise.apigee.com/platform/#/",
+		ApigeeMgmtApiUrl:   "https://api.enterprise.apigee.com/v1",
+		ApigeeProxyDomain:  "apigee.net",
 	}
 
 	projectId, err := exec.Command("gcloud", "config", "get-value", "project").Output()
@@ -56,6 +64,8 @@ func DefaultEnvConfig() (*EnvConfig, error) {
 	}
 	c.ProjectID = strings.TrimSuffix(string(projectId), "\n")
 	c.PivnetApiToken = os.Getenv("PIVNET_API_TOKEN")
+	c.ApigeeOrg = os.Getenv("APIGEE_ORG")
+	c.ApigeeEnv = os.Getenv("APIGEE_ENV")
 
 	return c, nil
 }

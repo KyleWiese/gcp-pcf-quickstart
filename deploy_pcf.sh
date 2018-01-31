@@ -42,6 +42,18 @@ if [ ! -f $env_config ]; then
         echo "and run: export PIVNET_API_TOKEN=<value of 'API TOKEN'> before running this command."
         exit 1
     fi
+    if [ -z ${APIGEE_ORG+x} ]; then
+	echo "APIGEE_ORG environment required (for apigee service broker tile)."
+	echo "Find your apigee organization at https://enterprise.apigee.com"
+	echo "and run: export APIGEE_ORG=<your apigee org> before running this command."
+	exit 1
+    fi
+    if [ -z ${APIGEE_ENV+x} ]; then
+        echo "APIGEE_ENV environment required (for apigee service broker tile)."
+        echo "Find your apigee environment at https://enterprise.apigee.com"
+        echo "and run: export APIGEE_ENV=<your apigee env> before running this command."
+        exit 1
+    fi	
 
     omg-cli generate-config --env-dir="${ENV_DIR}"
     echo ""

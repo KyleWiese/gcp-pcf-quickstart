@@ -24,7 +24,7 @@ import (
 )
 
 type Properties struct {
-	ApigeeEdgeConfigurations ApigeeEdgeConfigurationValue `json:".properties.apigee_configurations`
+	ApigeeEdgeConfigurations ApigeeEdgeConfigurationValue `json:".properties.apigee_configurations"`
 }
 
 type ApigeeEdgeConfigurationValue struct {
@@ -57,10 +57,12 @@ func (*Tile) Configure(envConfig *config.EnvConfig, cfg *config.Config, om *ops_
 	properties := Properties{
 		ApigeeEdgeConfigurations: ApigeeEdgeConfigurationValue{[]ApigeeEdgeConfiguration{
 			{
-				ConfigurationName: "Default Configuration",
-				ApigeeDashboardUrl: "https://enterprise.apigee.com/platform/#/",
-				ApigeeMgmtApiUrl: "https://api.enterprise.apigee.com/v1",
-				ApigeeProxyDomain: "apigee.net",
+				ConfigurationName:       "Default Configuration",
+				Org:                     envConfig.ApigeeOrg,
+				Env:                     envConfig.ApigeeEnv,
+				ApigeeDashboardUrl:      envConfig.ApigeeDashboardUrl,
+				ApigeeMgmtApiUrl:        envConfig.ApigeeMgmtApiUrl,
+				ApigeeProxyDomain:       envConfig.ApigeeProxyDomain,
 				ApigeeProxyHostTemplate: "${org}-${env}.${domain}",
 				ApigeeProxyNameTemplate: "cf-${route}",
 			},

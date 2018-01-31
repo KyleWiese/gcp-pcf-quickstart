@@ -63,9 +63,9 @@ func Configure(logger *log.Logger, app *kingpin.Application) {
 	selectedTiles = []tiles.TileInstaller{
 		&gcp_director.Tile{},
 		&ert.Tile{},
-		&apigee_broker.Tile{},
 		&stackdriver_nozzle.Tile{Logger: logger},
 		&service_broker.Tile{},
+		&apigee_broker.Tile{},
 	}
 }
 
