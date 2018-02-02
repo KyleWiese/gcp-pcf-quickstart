@@ -19,6 +19,8 @@ any provided instructions and re-run the script. It is safe to repeat.
 
 ```bash
 export PIVNET_API_TOKEN=<Look for 'API TOKEN' at https://network.pivotal.io/users/dashboard/edit-profile>
+export APIGEE_ORG=<Apigee Organization>
+export APIGEE_ENV=<Apigee Environment>
 ./deploy_pcf.sh
 ```
 

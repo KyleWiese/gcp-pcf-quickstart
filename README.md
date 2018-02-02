@@ -2,7 +2,7 @@
 
 This repository contains tools and instructions for deploying Pivotal Cloud Foundry (PCF) on Google Cloud Platform (GCP).
 The installation includes [PCF 1.12](https://pivotal.io/platform) (Full size or [Small Footprint](https://docs.pivotal.io/pivotalcf/1-12/customizing/small-footprint.html)), [GCP Service Broker](https://docs.pivotal.io/partners/gcp-sb/index.html),
-and the [Stackdriver Nozzle](https://docs.pivotal.io/partners/gcp-sdn/index.html).
+[Stackdriver Nozzle](https://docs.pivotal.io/partners/gcp-sdn/index.html), and the [Apigee Service Broker](https://docs.pivotal.io/partners/apigee/).
 
 This project aims to make installing PCF on GCP straightforward and is currently in **beta**. It is **not** an official Google product.
 

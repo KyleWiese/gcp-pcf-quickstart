@@ -16,6 +16,12 @@ Follow this guide to prepare you Google Cloud Project and deployment machine.
      - Persistent Disk Standard (GB) (in desired region): 10,000 GB
      - CPUs (in desired region): 200
 
+## Setting up your Apigee Account
+
+1. [Sign up](https://login.apigee.com/sign_up) for an Apigee account
+1. Follow the steps to setup your account
+1. After a few minutes you should see an `****-eval` organization with a `test` and `prod` environment available in your apigee edge dashboard
+
 ## Setting up your Deployment Machine
 
 ### Option 1: Using Cloud Shell
