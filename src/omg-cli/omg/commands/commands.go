@@ -20,11 +20,11 @@ import (
 	"log"
 
 	"omg-cli/omg/tiles"
+	"omg-cli/omg/tiles/apigee_broker"
 	"omg-cli/omg/tiles/ert"
 	"omg-cli/omg/tiles/gcp_director"
 	"omg-cli/omg/tiles/service_broker"
 	"omg-cli/omg/tiles/stackdriver_nozzle"
-	"omg-cli/omg/tiles/apigee_broker"
 
 	"fmt"
 
@@ -54,6 +54,7 @@ func Configure(logger *log.Logger, app *kingpin.Application) {
 		&SourceConfigCommand{logger: logger},
 		&ReviewEulasCommand{logger: logger},
 		&CleanupProjectCommand{logger: logger},
+		&DirectorSSHCommand{logger: logger},
 	}
 
 	for _, c := range cmds {
@@ -66,7 +67,10 @@ func Configure(logger *log.Logger, app *kingpin.Application) {
 		&stackdriver_nozzle.Tile{Logger: logger},
 		&service_broker.Tile{},
 		&apigee_broker.Tile{},
+		// TODO: enable conditionally
+		//&healthwatch.Tile{},
 	}
+
 }
 
 type step func() error
